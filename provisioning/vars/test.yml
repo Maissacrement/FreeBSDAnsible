@@ -1,0 +1,25 @@
+---
+person:
+    first_name: Michael
+    last_name: Heap
+    skills:
+        - Ansible
+        - Golang
+        - Python
+        - PHP
+    likes: [dogs, walking, programming]
+    favorites:
+        drink: Pepsi Max
+        color: Red
+    other:
+        - key: value
+          another: val
+        - key: foo
+          another: val
+    message: >
+        This is a message that is 
+        going to span several lines
+        but is going to be placed on
+        a single line when evaluated
+
+...

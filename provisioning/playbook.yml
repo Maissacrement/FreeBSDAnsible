@@ -1,0 +1,34 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+      - "/provisioning/vars/test.yml"
+
+  vars:
+      ansible_test: "Install required packages"
+
+  tasks:
+      - name: 'Connect on vagrant user'
+        user:
+          name: vagrant
+          shell: /usr/local/bin/fish
+
+      - name: "{{ansible_test}}"
+        pkgng: name={{item}}
+        loop:
+            - fish
+            - tmux
+      - name: "{{person.likes[0]}}"
+        shell: |
+            echo ''
+
+      - name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+        user:
+          name: james
+          shell: /usr/local/bin/fish
+          groups: wheel
+          generate_ssh_key: True
+          create_home: yes
+          append: yes
+
+...
